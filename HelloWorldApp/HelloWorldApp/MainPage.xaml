@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HelloWorldApp"
+             x:Class="HelloWorldApp.MainPage">
+    <StackLayout Padding="0,50,0,0" BackgroundColor="#222">
+        <Frame BackgroundColor="DeepPink" Padding="24" CornerRadius="0" HasShadow="False" Margin="0">
+            <Label Text="Hello World!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Clicked"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </Frame>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Column="0" Text="Click Me!" Clicked="Button_Clicked" BackgroundColor="Azure"/>
+            <Button Grid.Column="1" Text="Click Me!" Clicked="Button_Clicked" BackgroundColor="Azure"/>
+        
+            <Button Grid.Column="1" Grid.Row="1" Text="" x:Name="BatteryBtn" Clicked="Battery_BatteryInfoChanged" BackgroundColor="Yellow"/>
+        
+            <Button Grid.Row="2" Grid.ColumnSpan="2" Text="Get A Card" Clicked="Get_A_Card" BackgroundColor="Red" TextColor="Black" FontAttributes="Bold"/>
+
+            <Button Grid.Column="0" Grid.Row="1" Text="Flashlight" Clicked="Toggle_Flashlight" BackgroundColor="Aquamarine"/>
+
+            <Button Grid.Row="3" Grid.ColumnSpan="2" Text="Where am i?" Clicked="Get_Location"/>
+        </Grid>
+        <StackLayout BackgroundColor="Green" x:Name="TodoList" Padding="5">
+            <Label Text="My Todos" HorizontalTextAlignment="Center" TextColor="White" FontSize="24"/>
+            <Entry Placeholder="Enter Task" Completed="Entry_TextChanged"/>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
